@@ -1,0 +1,18 @@
+{
+  "files.associations": {
+    ".fantomasignore": "ignore",
+    "*.svelte": "svelte",
+    "*.css": "tailwindcss",
+    "*.mdx": "mdx",
+    "*.yml": "yaml",
+    "Caddyfile": "caddyfile",
+    "*.scss": "scss",
+    "*.ank": "ahk",
+    "*.postcss": "tailwindcss",
+    "*.csx": "csharp",
+    "*.fsproj": "xml",
+    "*.cpp": "cpp",
+    "iostream": "cpp",
+    "ostream": "cpp"
+  }
+}
