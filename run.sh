@@ -16,4 +16,5 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Running $filename..."
-"/tmp/$filename"
+echo ""
+time "/tmp/$filename" ${@:2}
