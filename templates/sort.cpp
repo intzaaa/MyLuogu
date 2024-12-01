@@ -3,9 +3,9 @@
 #include <algorithm>
 #include <sstream>
 
-#define _ vector<int>
-
 using namespace std;
+
+#define _ vector<int>
 
 const _ select_sort(_ vec)
 {
@@ -42,7 +42,7 @@ const _ insert_sort(_ vec)
     return vec;
 }
 
-void _quick_sort(_ &vec, int left, int right)
+void quick_sort(_ &vec, int left, int right)
 {
     if (left >= right)
         return;
@@ -65,21 +65,54 @@ void _quick_sort(_ &vec, int left, int right)
 
     swap(vec[left], pivot);
 
-    _quick_sort(vec, _left, left - 1);
-    _quick_sort(vec, left + 1, _right);
+    quick_sort(vec, _left, left - 1);
+    quick_sort(vec, left + 1, _right);
 }
 
 const _ quick_sort(_ vec)
 {
-    _quick_sort(vec, 0, vec.size() - 1);
+    quick_sort(vec, 0, vec.size() - 1);
 
     return vec;
 }
 
-const _ merge_sort(_ vec)
-{
-    // TODO
-    return vec;
+const _ merge(const _ &left, const _ &right) {
+    int i = 0, j = 0;
+    _ merged;
+    
+    while (i < left.size() && j < right.size()) {
+        if (left[i] < right[j]) {
+            merged.push_back(left[i]);
+            i++;
+        } else {
+            merged.push_back(right[j]);
+            j++;
+        }
+    }
+
+    while (i < left.size()) {
+        merged.push_back(left[i]);
+        i++;
+    }
+    while (j < right.size()) {
+        merged.push_back(right[j]);
+        j++;
+    }
+
+    return merged;
+}
+
+const _ merge_sort(_ vec) {
+    if (vec.size() <= 1) return vec;
+    
+    int mid = vec.size() / 2;
+    _ left(vec.begin(), vec.begin() + mid);
+    _ right(vec.begin() + mid, vec.end());
+    
+    left = merge_sort(left);
+    right = merge_sort(right);
+    
+    return merge(left, right);
 }
 
 const _ count_sort(_ vec)
@@ -135,6 +168,6 @@ int main(int argc, char *argv[])
     test(bubble_sort(sample), answer);
     test(insert_sort(sample), answer);
     test(quick_sort(sample), answer);
-    // test(merge_sort(sample), answer);
+    test(merge_sort(sample), answer);
     test(count_sort(sample), answer);
 }
