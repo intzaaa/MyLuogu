@@ -13,7 +13,8 @@
     "*.fsproj": "xml",
     "*.cpp": "cpp",
     "iostream": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "array": "cpp"
   },
   "C_Cpp.errorSquiggles": "enabled"
 }
